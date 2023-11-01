@@ -9,14 +9,14 @@ CREATE TABLE usuarios (
     PRIMARY KEY (usuario)
 );
 CREATE TABLE proyectos (
-    id_proyecto int (30) AUTO_INCREMENT not null,
+    id_proyecto int AUTO_INCREMENT not null,
     nombre_proyecto VARCHAR(40) not null,
     fecha_inicio date not null,
     fecha_final date,
     PRIMARY KEY (id_proyecto)
 );
 CREATE TABLE empleados (
-    id_empleado INT (30) AUTO_INCREMENT NOT NULL,
+    id_empleado INT AUTO_INCREMENT NOT NULL,
     nombre_empleado VARCHAR(30) not null,
     apellidos VARCHAR(40) not null,
     correo VARCHAR(100) not null,
@@ -28,19 +28,19 @@ CREATE TABLE empleados (
     PRIMARY KEY (id_empleado)
 );
 CREATE TABLE tareas (
-    id_tareas int (30) AUTO_INCREMENT not null,
+    id_tareas int AUTO_INCREMENT not null,
     titulo VARCHAR(40) not null,
-    horas int(30) not null,
-    proyecto_id int (30) not null,
-    empleado_id INT (30) NOT NULL,
+    horas int not null,
+    proyecto_id int not null,
+    empleado_id INT NOT NULL,
     FOREIGN KEY (proyecto_id) REFERENCES proyectos(id_proyecto),
     FOREIGN KEY (empleado_id) REFERENCES empleados(id_empleado),
     PRIMARY KEY (id_tareas)
 );
 CREATE TABLE ProyectosAsignados (
-    id_asignacion int(30) AUTO_INCREMENT not null, 
-    id_proyecto int (30) not null,
-    id_empleado INT (30) NOT NULL,
+    id_asignacion int AUTO_INCREMENT not null, 
+    id_proyecto int not null,
+    id_empleado INT NOT NULL,
     FOREIGN KEY (id_proyecto) REFERENCES proyectos(id_proyecto),
     FOREIGN KEY (id_empleado) REFERENCES empleados(id_empleado),
     PRIMARY KEY (id_asignacion)
