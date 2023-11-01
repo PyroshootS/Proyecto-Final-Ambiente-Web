@@ -52,6 +52,17 @@ body{
     grid-area: footer;
     background-color: lightblue;
 }
+@media screen and (min-width: 200px) {
+    .grid-container{
+        grid-template-areas: 
+        "header"
+        "navbar"
+        "main"
+        "footer";
+        grid-template-rows: 100px 115px auto 100px;
+        grid-template-columns:  auto ;
+    }
+}
 @media screen and (min-width: 600px) {
     .grid-container{
         grid-template-areas: 
@@ -59,7 +70,7 @@ body{
         "navbar     navbar"
         "main       main"
         "footer     footer";
-        grid-template-rows: 100px 50px auto 100px;
+        grid-template-rows: 100px 115px auto 100px;
         grid-template-columns: 200px auto ;
     }
 }
