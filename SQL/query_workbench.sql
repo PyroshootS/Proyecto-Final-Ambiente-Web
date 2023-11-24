@@ -65,3 +65,10 @@ FOREIGN KEY (id_empleado) REFERENCES empleados(id_empleado),
 PRIMARY KEY (id_asignacion)
 )
 Engine = InnoDB;
+
+--INSERTS!!
+
+
+INSERT INTO proyecto_ambiente.usuarios (usuario, passwor, activo) VALUES
+('grupo3', '123456', 1),
+('oscar', '654321', 1);
