@@ -1,5 +1,6 @@
 <?php
-    include_once  '/xampp/htdocs/Proyecto/models/UsuarioModel.php';
+    
+    include_once 'UsuarioModel.php';
 
     function authorizeUser($email)
     {
@@ -8,9 +9,8 @@
 
         header('Location: ' . ROOT . '/index.php' );
     }
-
-    function bindUsers()
-    {
+    /*
+    function bindUsers(){
         $recordset = User.getAll();
 
         if (is_null($recordset) || mysqli_num_rows($recordset) == 0)
@@ -29,6 +29,7 @@
         }
         echo "</table>";
     }
+    */
 
     # Valida si la variaqble login ha sido enviada al servidor por medio del metodo POST
     if (isset($_POST['login']))
@@ -37,7 +38,7 @@
         $password = $_POST['password'];
         $credentials = new Identity($email, $password);
 
-        if ($credentials.validate())
+        if ($credentials->validate())
         {
             authorizeUser($email);
         }
@@ -60,7 +61,7 @@
         else
         {
             $credentials = new Identity($email, $password);
-            if (!$credentials.register())
+            if (!$credentials->register())
             {
                 $_POST["errorMessage"] = 'El usuario no pudo ser registrado.';
             }

@@ -1,9 +1,9 @@
 <?php
-include_once '/Controller/UsuarioController.php';
+    include_once 'Controller/UsuarioController.php';
 
-if (isset($_POST['errorMessage'])) {
-    echo '<div class="alert">' . $_POST["errorMessage"] . ' </div>';
-}
+    if (isset($_POST['errorMessage'])) {
+        echo '<div class="alert">' . $_POST["errorMessage"] . ' </div>';
+    }
 ?>
 <!DOCTYPE html>
 <html lang="en">
