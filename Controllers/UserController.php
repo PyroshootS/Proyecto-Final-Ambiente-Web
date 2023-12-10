@@ -4,7 +4,7 @@
     include_once 'models/userModel.php';
     
     
-    $credentials = null;  
+     
     # Valida si la variable login ha sido enviada por medio del metodo POST 
     if (isset($_POST["login"])){
         $email = $_POST["email"];
@@ -21,17 +21,23 @@
         }
     }
 
-    if (isset($_POST["register"])){
+    $credentials = new Identity("", ""); 
+
+    if (isset($_POST["register"])) {
         $email = $_POST["email"];
         $password = $_POST["password"];
 
-        // Verifica si $credentials es diferente de null antes de llamar a registerUser
-        if ($credentials && $credentials->registerUser($email, $password)){
+        // Actualizar la instancia de $credentials con los datos reales
+        $credentials->email = $email;
+        $credentials->password = $password;
+
+        if ($credentials->registerUser($email, $password)) {
             $_POST["RegisterMessage"] = "Registro Exitoso";
         } else {
             $_POST["errorMessage"] = "La combinación de usuario y contraseña no es válida.";
         }
     }
+
     function bindUsers()
     {
         $recordset = User::getAll();
