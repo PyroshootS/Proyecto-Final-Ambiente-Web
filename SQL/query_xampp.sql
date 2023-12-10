@@ -3,7 +3,7 @@ CREATE DATABASE proyecto_ambiente;
 USE proyecto_ambiente;
 -- Crear la tabla usuario
 CREATE TABLE usuarios (
-    usuario varchar (30) NOT NULL ,
+    usuario varchar (60) NOT NULL ,
     passwor VARCHAR(30) not null,
     activo BOOLEAN not null,
     PRIMARY KEY (usuario)
@@ -47,7 +47,7 @@ CREATE TABLE ProyectosAsignados (
 );
 
 
--- Tentativo a funcionar no ha sido probado 
+----Chequear en Xamp , solo probado en workbench
 INSERT INTO proyecto_ambiente.usuarios (usuario, passwor, activo) VALUES
-('grupo3', '123456', 1),
-('oscar', '654321', 1);
+('grupo3@dominio.com', '123456', 1),
+('oscar@dominio.com', '654321', 1);

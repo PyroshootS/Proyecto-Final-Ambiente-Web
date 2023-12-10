@@ -1,65 +1,94 @@
 <?php
-    include_once  '/userController.php';
-    if (isset($_POST["errorMessage"]))
-{echo '<div class="alert">' . $_POST["errorMessage"] . '</div>';}
+
+include_once 'Controllers/UserController.php';
+
 ?>
-<form id="registerForm" name="registerForm" method="post" autocomplete="off">
-<fieldset>
-<legend>Formulario de Registro</legend>
-        <p>
-                <label for="email">Email</label>
-                <input type="email" id="email" name="email" placeholder="Correo Electrónico" />      
-        </p>
-        <p>
-            <label for="register_password">Password</label>
-            <input type="password" id="register_password" name="register_password" placeholder="Contraseña" />
-        </p>
-        <p>
-                <label for="confirmPassword">Confirm Password</label>
-                <input type="password" id="confirm_password" name="confirm_password" placeholder="Contraseña" />
-        </p>
-        <p>
-            <button type="submit" id="register" name="register">Register</button>
-        </p>
+
+<!Doctype html>
+<html>
+<head>
+    <title>Proyecto Ambiente</title>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="styles/styles.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"
+     integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
+</head>
+<body class="grid-container">
+        <header class="header">
+        <img class="logo" src="images/logo.png" alt="Logo">
+            <div>
+                <h1 class="register-title">Register</h1>
+            </div>
+        </header>
+        <nav class="navbar">
+            <ul>
+                <li>Principal</li>
+                <br>
+                <li>Usuarios</li>
+                <br>
+                <li>Empleados</li>
+                <br>
+                <li>Proyectos</li>
+                <br>
+                <li>Reportes</li>
+                <br>
+            </ul>
+        </nav>
+        <section class="main">
+        <form class="registerForm" id="registerForm" name="registerForm" method="post">
+    <fieldset>
+        <input type="email" id="email" name="email" placeholder="Correo Electronico" required />
+        <input type="password" id="password" name="password" placeholder="Contraseña" minlength="6" maxlength="12"
+            required />
+        <button class="botton-submit" type="submit" id="register" name="register">Register</button>
+        <a class="a-botton" href="/index.php">Home</a>
     </fieldset>
+
+
 </form>
+        </section>
+        <footer class="footer">Derechos Grupo 3</footer>
+        <script src="scrips/main.js" type="text/javascript"></script>
+    </body>
+</html>
+
+
 <script type="text/javascript">
-    $(document).ready(function() {
-        $("#registerForm").validate({
-            rules: {
-                email: {
-                    required: true,
-                    email: true
-                },
-                register_password: {
-                    required: true,
-                    minlength: 6,
-                    maxlength: 12
-                },
-                confirm_password: {
-                    required: true,
-                    minlength: 6,
-                    maxlength: 12,
-                    equalTo: "#register_password"
-                }
-            },
-            messages: {
-                email: {
-                    required: "El correo electrónico es obligatorio.",
-                    email: "El correo electrónico no es válido."
-                },
-                register_password: {
-                    required: "La contraseña es obligatoria.",
-                    minlength: "la contraseña debe tener almenos 6 caracteres.",
-                    maxlength: "La contraseña no debe exceder los 12 caracteres."
-                },
-                confirm_password: {
-                    required: "La confirmación de la contraseña es obligatoria.",
-                    minlength: "La confirmación de la contraseña debe tener almenos 6 caracteres.",
-                    maxlength: "La confirmación de la contraseña no debe exceder los 12 caracteres.",
-                    equalTo: "La confirmación de la contraseña debe ser igual a la contraseña."
-                }
-            }
-        });
+    const email = document.getElementById("email");
+    email.addEventListener("input", (event) => {
+        if (email.validity.typeMismatch) {
+            email.setCustomValidity("No es una dirección de correo electronico valida!");
+        }
+        else {
+            email.setCustomValidity("");
+        }
     });
+
+    const password = document.getElementById("password");
+    password.addEventListener("input", (event) => {
+        if (password.validity.tooShort || password.validity.tooLong) {
+            password.setCustomValidity("La contraseña no  es valida");
+        }
+        else {
+            password.setCustomValidity("");
+        }
+    });
+
+    const form = document.getElementById("registerForm");
+    form.addEventListener("submit", (event) => {
+        if (email.validity.valueMissing) {
+            email.setCustomValidity("La direccion de correo electronico es obligatoria")
+        }
+
+        if (password.validity.valueMissing) {
+            alert("La contraseña es obligatoria");
+            event.preventDefault();
+        }
+
+        if (!email.validity.valid || !password.validity.valid) {
+            event.preventDefault();
+        }
+    });
+
 </script>

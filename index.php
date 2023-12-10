@@ -5,7 +5,7 @@
 <!Doctype html>
 <html>
 <head>
-    <title>Avance Semana08</title>
+    <title>Proyecto Ambiente</title>
     <meta charset="UTF-8">
     <link rel="stylesheet" href="styles/styles.css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
@@ -16,8 +16,7 @@
         <header class="header">
         <img class="logo" src="images/logo.png" alt="Logo">
             <div>
-                
-                <a class="login-anchor" href="login.php">Login</a>
+                <h1 class="login-title">Login</h1>
             </div>
         </header>
         <nav class="navbar">
@@ -35,13 +34,7 @@
             </ul>
         </nav>
         <section class="main">
-        <?php
-            if (!isset($_SESSION['loggedIn'])) {
-                include 'login.php';
-            } else {
-                include 'session.php';
-            }
-        ?>
+        <?php include 'Views/section.php'; ?>
         </section>
         <footer class="footer">Derechos Grupo 3</footer>
         <script src="scrips/main.js" type="text/javascript"></script>
