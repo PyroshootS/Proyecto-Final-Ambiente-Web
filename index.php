@@ -1,5 +1,5 @@
 <?php
-
+    include_once('global.php');
     session_start();
 ?>
 <!Doctype html>
@@ -34,6 +34,15 @@
             </ul>
         </nav>
         <section class="main">
+        <main class="main">
+            <?php
+                if (isset($_SESSION['email']))
+                
+                {
+                    include VIEWS_PATH . '/layout.php';
+                }
+            ?>
+        </main>
         <?php include 'Views/section.php'; ?>
         </section>
         <footer class="footer">Derechos Grupo 3</footer>

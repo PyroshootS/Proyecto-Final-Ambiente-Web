@@ -42,7 +42,7 @@ include_once 'Controllers/UserController.php';
         <input type="password" id="password" name="password" placeholder="Contraseña" minlength="6" maxlength="12"
             required />
         <button class="botton-submit" type="submit" id="register" name="register">Register</button>
-        <a class="a-botton" href="/index.php">Home</a>
+        <a class="a-botton" href="index.php">Home</a>
     </fieldset>
 
 
