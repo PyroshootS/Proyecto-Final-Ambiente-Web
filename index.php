@@ -16,7 +16,7 @@
         <header class="header">
         <img class="logo" src="images/logo.png" alt="Logo">
             <div>
-                <h1 class="login-title">Login</h1>
+                <h1 class="login-title">Home</h1>
             </div>
         </header>
         <nav class="navbar">

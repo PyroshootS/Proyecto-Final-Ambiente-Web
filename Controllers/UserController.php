@@ -48,15 +48,18 @@
             return;
         }
 
-        echo "<table>";
-        echo "<tr><th>Correo electrónico</th><th>Activo</th><th>Acciones</th></tr>";
+        echo '<table class="tableUser">';
+        echo "<tr><th class='tabletitulo'>Correo electrónico</th><th class='tabletitulo'>Activo  </th>  <th class='tabletitulo'>  Acciones</th></tr>";
         while ($record = mysqli_fetch_assoc($recordset)) {
             echo "<tr><td>" . $record["usuario"] . "</td>";
         
             // Verificar si la clave 'activo' está definida antes de intentar acceder a ella
             $activo = isset($record["activo"]) ? $record["activo"] : "";
-        
-            echo "<td>" . $activo . "</td>";
+            if($activo == 0){
+                echo "<td> False </td>";
+            }else{
+                echo "<td> True </td>";
+            }
             echo "<td><button type='button' onclick='Delete(\"" . $record["usuario"] . "\")'>Borrar</button></td></tr>";
         }
         

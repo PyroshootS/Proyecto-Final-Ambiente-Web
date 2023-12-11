@@ -148,3 +148,16 @@ body{
     color:black;
 
 }
+
+.tableUser {
+    padding: 20px;
+    margin: 40px;
+    background-color: rgb(173, 179, 185);
+    display: inline-flex;
+    font-size: 20px;
+    border-style: solid;
+}
+
+.tabletitulo {
+    padding: 2px 6px; 
+}
