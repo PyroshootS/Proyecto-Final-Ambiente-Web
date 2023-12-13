@@ -15,7 +15,7 @@ class User
 
     public static function getAll()
     {
-        $sql = "SELECT usuario FROM usuarios WHERE activo = 1";
+        $sql = "SELECT usuario, activo FROM usuarios";
 
         try {
             $recordset = executeQuery($sql);
@@ -26,8 +26,7 @@ class User
 
         return NULL;
     }
-
-    public static function delete($email)
+    function delete($email)
     {
 
         $sql = "UPDATE usuarios SET activo = 0 WHERE usuario = '$email'";
@@ -39,12 +38,63 @@ class User
             // Implementacion del codigo que maneja el error
         }
         return false;
+
+
     }
+    public static function getAllProjects()
+    {
+        $sql = "SELECT * FROM proyectos";
 
+        try {
+            $recordset = executeQuery($sql);
+            return $recordset;
+        } catch (Exception $e) {
+            // Implementación del código que maneja el error
+        }
 
+        return NULL;
+    }
+    public static function getAllEmpleados()
+    {
+        $sql = "SELECT * FROM empleados";
 
+        try {
+            $recordset = executeQuery($sql);
+            return $recordset;
+        } catch (Exception $e) {
+            // Implementación del código que maneja el error
+        }
 
+        return NULL;
+    }
+    public static function getAllTareas()
+    {
+        $sql = "SELECT * FROM tareas";
 
+        try {
+            $recordset = executeQuery($sql);
+            return $recordset;
+        } catch (Exception $e) {
+            // Implementación del código que maneja el error
+        }
+
+        return NULL;
+    }
+    public static function getProyectosAsignados()
+    {
+        $sql = "SELECT pa.id_asignacion, pa.id_proyecto, p.nombre_proyecto, pa.id_empleado
+                FROM ProyectosAsignados pa
+                INNER JOIN proyectos p ON pa.id_proyecto = p.id_proyecto";
+
+        try {
+            $recordset = executeQuery($sql);
+            return $recordset;
+        } catch (Exception $e) {
+            // Implementación del código que maneja el error
+        }
+
+        return NULL;
+    }
 }
 
 class Identity extends User
@@ -66,7 +116,7 @@ class Identity extends User
             }
         } catch (Exception $e) {
             //implementacion del codigo que maneja el error
-        
+
         }
 
         return false;
@@ -81,6 +131,7 @@ class Identity extends User
 
         try {
             $recordset = executeQuery($sqlregister);
+            header("location: " . ROOT);
         } catch (Exception $e) {
             die('Error al registrar usuario: ' . $e->getMessage());
         }
@@ -89,4 +140,20 @@ class Identity extends User
 
 
 }
+
+function password_change($email, $password)
+{
+    $sql = "UPDATE  proyecto_ambiente.usuarios SET passwor='$password' where usuario='$email'";
+    try {
+        $recordSet = ExecuteQuery($sql);
+        return $recordSet;
+    } catch (Exception $e) {
+
+    }
+
+
+    return False;
+}
+
+
 ?>

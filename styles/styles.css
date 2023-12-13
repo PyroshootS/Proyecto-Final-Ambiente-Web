@@ -105,12 +105,12 @@ body{
     color: white;
     font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
     font-size: 50px;
-    padding-top: 10px;
+    padding-top: 12px;
 }
 
 .registerForm {
     padding: 20px;
-    margin: 100px;
+    margin: 100px ;
     background-color: darkgrey;
     display: inline-flex;
 }
@@ -157,7 +157,48 @@ body{
     font-size: 20px;
     border-style: solid;
 }
+.tableProject {
+    padding: 20px;
+    margin: 40px;
+    background-color: rgb(173, 179, 185);
+    display: inline-flex;
+    font-size: 20px;
+    border-style: solid;
+}
+.tableEmpleados {
+    padding: 20px;
+    margin: 40px;
+    background-color: rgb(173, 179, 185);
+    display: inline-flex;
+    font-size: 20px;
+    border-style: solid;
+}
+.tablereportes {
+    padding: 20px;
+    margin: 40px;
+    background-color: rgb(173, 179, 185);
+    display: inline-flex;
+    font-size: 20px;
+    border-style: solid;
+}
 
 .tabletitulo {
     padding: 2px 6px; 
 }
+
+.changepassword{
+    padding: 20px 10px;
+    margin: 10px;
+    background-color: darkgrey;
+    display: inline-flex;
+}
+
+.CambioCon-div{
+    padding: 10px;
+    background-color: cadetblue;
+    display: grid;
+    place-items: center;
+    margin: 0 550px;
+    border-style: groove;
+}
+

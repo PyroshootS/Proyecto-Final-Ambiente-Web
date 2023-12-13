@@ -1,4 +1,7 @@
 <?php 
-    echo "Logged in as " . $_SESSION["email"] . " ";
+   echo "<br>";
+   echo "<h5>Logged in as " . $_SESSION["email"] . " <h5>";
 ?>
-<a href="logout.php">Logout</a>
+
+<a class= "a-botton" href="logout.php">Logout</a>
+

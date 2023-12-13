@@ -69,3 +69,49 @@ Engine = InnoDB;
 INSERT INTO proyecto_ambiente.usuarios (usuario, passwor, activo) VALUES
 ('grupo3@dominio.com', '123456', 1),
 ('oscar@dominio.com', '654321', 1);
+
+-- Insertar un proyecto con fecha final especificada
+INSERT INTO proyectos (nombre_proyecto, fecha_inicio, fecha_final)
+VALUES ('Proyecto A', '2023-01-01', '2023-06-30');
+-- Insertar otro proyecto sin fecha final
+INSERT INTO proyectos (nombre_proyecto, fecha_inicio)
+VALUES ('Proyecto B', '2023-03-15');
+INSERT INTO proyectos (nombre_proyecto, fecha_inicio, fecha_final)
+VALUES ('Proyecto C', '2023-05-10', '2023-12-31');
+
+-- Insertar empleados
+INSERT INTO empleados (nombre_empleado, apellidos, correo, rol, activo, usuario)
+VALUES ('Juan', 'Pérez', 'juan@dominio.com', 1, 1, 'grupo3@dominio.com');
+
+INSERT INTO empleados (nombre_empleado, apellidos, correo, rol, activo, usuario)
+VALUES ('Ana', 'Gómez', 'ana@dominio.com', 0, 1, 'grupo3@dominio.com');
+
+-- Insertar tareas
+INSERT INTO tareas (titulo, horas, proyecto_id, empleado_id)
+VALUES ('Tarea 1', 10, 1, 1);
+
+INSERT INTO tareas (titulo, horas, proyecto_id, empleado_id)
+VALUES ('Tarea 2', 8, 1, 2);
+
+INSERT INTO tareas (titulo, horas, proyecto_id, empleado_id)
+VALUES ('Tarea 3', 12, 2, 1);
+
+INSERT INTO tareas (titulo, horas, proyecto_id, empleado_id)
+VALUES ('Tarea 4', 6, 2, 2);
+
+-- Insertar proyectos asignados
+INSERT INTO ProyectosAsignados (id_proyecto, id_empleado)
+VALUES (1, 1);
+
+INSERT INTO ProyectosAsignados (id_proyecto, id_empleado)
+VALUES (1, 2);
+
+INSERT INTO ProyectosAsignados (id_proyecto, id_empleado)
+VALUES (2, 1);
+
+INSERT INTO ProyectosAsignados (id_proyecto, id_empleado)
+VALUES (2, 2);
+
+
+
+
